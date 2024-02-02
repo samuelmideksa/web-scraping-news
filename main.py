@@ -13,10 +13,10 @@ chat_id = constants.chat_id
 
 # Check for the existence of a file to store posted news URLs.
 # If it exists, load the data; if not, create a new set.
-posted_news_file = './data/posted_news.pkl'
+posted_news_file = './data/posted_news.txt'
 if os.path.exists(posted_news_file):
-    with open(posted_news_file, 'rb') as f:
-        posted_news = pickle.load(f)
+    with open(posted_news_file, 'r') as f:
+        posted_news = set(f.read().splitlines())
 else:
     posted_news = set()
 
@@ -119,8 +119,9 @@ def scrape_news():
 
                     # Add the URL to the set of posted news and save it
                     posted_news.add(post_url)
-                    with open(posted_news_file, 'wb') as f:
-                        pickle.dump(posted_news, f)
+                    with open(posted_news_file, 'a') as f:
+                        f.write(post_url + '\n')
+
 
                     # Pause between processing each post
                     time.sleep(20)

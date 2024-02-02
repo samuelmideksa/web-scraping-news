@@ -27,4 +27,4 @@ run in terminal
 
 ## Notice
 
-posted_news.pkl keeps a track of already sent messages to avoid duplicate news, delete it to restart
+posted_news.txt keeps a track of already sent messages to avoid duplicate news, delete it to restart
