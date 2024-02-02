@@ -1,0 +1,2 @@
+token = 'YOUR_BOT_TOKEN'
+chat_id = '@YOUR_CHANNEL_USERNAME'
