@@ -23,17 +23,18 @@ else:
 # URL of the news website to be scraped
 url = 'https://shega.co/post/category/news/'
 
-def is_within_last_month(post_date_str):
+def is_within_last_n_days(post_date_str, n):
     """
-    Check if the given date string is within the last week.
+    Check if the given date string is within the last 'n' days.
     Args:
         post_date_str (str): Date string of the post in '%B %d, %Y' format (e.g., 'January 18, 2024')
+        n (int): Number of days to check against
     Returns:
-        bool: True if the post date is within the last week, False otherwise
+        bool: True if the post date is within the last 'n' days, False otherwise
     """
     post_date = datetime.datetime.strptime(post_date_str, '%B %d, %Y')
-    month_ago = datetime.datetime.now() - datetime.timedelta(days=30)
-    return post_date > month_ago
+    ago = datetime.datetime.now() - datetime.timedelta(days=n)
+    return post_date > ago
 
 
 def send_telegram_photo(chat_id, photo, caption, token):
@@ -105,8 +106,8 @@ def scrape_news():
                 response = requests.get(post_image_url, timeout=60)
                 post_photo = BytesIO(response.content)
 
-                # Post the news if it's not already posted and is within the last week
-                if post_url not in posted_news and is_within_last_month(post_date):
+                # Post the news if it's not already posted and is within the last month
+                if post_url not in posted_news and is_within_last_n_days(post_date, 30):
                     caption = (f"<b>{post_title}</b>\n\n"
                                f"By: {post_author},  {post_date}\n\n"
                                f"{post_overview}\n\n"
