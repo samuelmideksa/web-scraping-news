@@ -1,2 +1,2 @@
-token = 'YOUR_BOT_TOKEN'
-chat_id = '@YOUR_CHANNEL_USERNAME'
+token = '6087245976:AAEHt5N7RZ0SlI1ZG6yrjrsctJYl8MvpuN4'
+chat_id = '@readNreadchannel'
