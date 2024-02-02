@@ -1,6 +1,8 @@
 # Telegram News Scraper
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## Description
 
@@ -11,7 +13,17 @@ The Telegram News Scraper is a Python script that scrapes news articles from a s
 ## Install requirements
 run in terminal
 
-```pip install -r requirements.txt```
+```bash
+    pip install -r requirements.txt
+```
+
+## Usage
+1. Make sure you have installed the required dependencies as mentioned above.
+2. Configure your Telegram bot token and chat ID in the constants.py file.
+3. Run the script using the following command:
+```bash Copy code
+    python main.py
+```
 
 ## Notice
 
