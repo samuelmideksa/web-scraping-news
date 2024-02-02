@@ -1,2 +1,2 @@
-data/*.pkl
+data/posted_news.pkl
 __pycache__/
